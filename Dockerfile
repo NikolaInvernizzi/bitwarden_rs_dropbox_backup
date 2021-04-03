@@ -1,5 +1,4 @@
-FROM arm32v6/alpine:3.13.4
-
+FROM arm32v7/alpine:latest
 # install sqlite, curl, bash (for script)
 RUN apk add --no-cache \
     sqlite \
