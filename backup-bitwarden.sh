@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # create backup filename
-BACKUP_FILE="bitwardenrs_$(date "+%F-%H%M%S")"
+BACKUP_FILE="${BACKUP_PREFIX}_$(date "+%F-%H%M%S")"
 
 # use sqlite3 to create backup (avoids corruption if db write in progress)
 sqlite3 /data/db.sqlite3 ".backup '/tmp/db.sqlite3'"
@@ -12,11 +12,14 @@ tar -czf - /tmp/db.sqlite3 /data/attachments | openssl enc -e -aes256 -salt -pbk
 # upload encrypted tar to dropbox
 /dropbox_uploader.sh -f /config/.dropbox_uploader upload /tmp/${BACKUP_FILE}.tar.gz /${BACKUP_FILE}.tar.gz
 
+# copy to backups folder 
+cp /tmp/${BACKUP_FILE}.tar.gz /backups/${BACKUP_FILE}.tar.gz
+
 # cleanup tmp folder
 rm -rf /tmp/*
 
 # delete older backups if variable is set & greater than 0
 if [ ! -z $DELETE_AFTER ] && [ $DELETE_AFTER -gt 0 ]
 then
-  /deleteold.sh
+  /backup-delete.sh
 fi

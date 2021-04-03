@@ -1,11 +1,14 @@
 version: '3.2'
 services:
   bitwarden_dropbox_backup:
-    image: shivpatel/bitwarden_rs_dropbox_backup:latest
+    image: nikolainvernizzi/bitwarden_rs_dropbox_backup:latest
     restart: always
     volumes:
-      - ./bwdata:/data 
-      - ./config:/config
+      - /home/user/bitwarden:/data 
+      - /home/user/bitwarden-dropbox-backup/config:/config
+      - /home/user/bitwarden-dropbox-backup/backups:/backups
     environment:
+      - BACKUP_PREFIX=xxx
       - BACKUP_ENCRYPTION_KEY=xxx
-      #- DELETE_AFTER=10
+      - DELETE_AFTER=10
+      - MINIMUM_BACKUPS=10
