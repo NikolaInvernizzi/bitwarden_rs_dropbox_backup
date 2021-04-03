@@ -7,26 +7,31 @@ RUN apk add --no-cache \
     sqlite \
     curl \
     bash \
-    openssl
+    openssl \
+    dos2unix
 
 # install dropbox uploader script
-# RUN curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh && \
-#     chmod +x dropbox_uploader.sh
+RUN curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh && \
+    chmod +x dropbox_uploader.sh
 
 # # copy backup script to /
-# COPY backup-bitwarden.sh /
+COPY backup-bitwarden.sh /
 
 # # copy entrypoint to /
-# COPY entrypoint.sh /
+COPY entrypoint.sh /
 
 # # copy delete older backup script to /
-# COPY backup-delete.sh /
+COPY backup-delete.sh /
 
 # # give execution permission to scripts
-# RUN chmod +x /entrypoint.sh && \
-#     chmod +x /backup-bitwarden.sh && \
-#     chmod +x /backup-delete.sh
+RUN chmod +x /entrypoint.sh && \
+    chmod +x /backup-bitwarden.sh && \
+    chmod +x /backup-delete.sh
 
-# RUN echo "0 1 * * * /backup-bitwarden.sh" > /etc/crontabs/root
+RUN dos2unix /entrypoint.sh \
+            /backup-bitwarden.sh \
+            /backup-delete.sh
 
-# ENTRYPOINT ["/entrypoint.sh"]
+RUN echo "0 1 * * * /backup-bitwarden.sh" > /etc/crontabs/root
+
+ENTRYPOINT ["/entrypoint.sh"]
