@@ -1,7 +1,10 @@
 #!/bin/sh
 
-#make config directory
+echo "$CRON_EXPRESSION /backup-bitwarden.sh" > /etc/crontabs/root
+
+#make config and backup directories
 mkdir /config
+mkdir /backups
 
 # setup dropbox uploader config file
 /dropbox_uploader.sh -f /config/.dropbox_uploader info

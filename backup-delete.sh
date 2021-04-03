@@ -3,9 +3,9 @@
 # Seconds since epoch for current time
 DATE_NOW=$(date +%s)
 
-TOTAL_BACKUPS=$(/dropbox_uploader.sh -f /config/.dropbox_uploader list | grep "${BACKUP_PREFIX}_" -c)
+TOTALBACKUPS=$(/dropbox_uploader.sh -f /config/.dropbox_uploader list | grep "${BACKUP_PREFIX}_" -c)
 
-if [ ! -z $MINIMUM_BACKUPS ] && [ $MINIMUM_BACKUPS -lt TOTAL_BACKUPS]
+if [ ! -z $MINIMUM_BACKUPS ] && [ $MINIMUM_BACKUPS -lt $TOTALBACKUPS ]
 then
   /dropbox_uploader.sh -f /config/.dropbox_uploader list | grep "${BACKUP_PREFIX}_" | while read LINE
   do

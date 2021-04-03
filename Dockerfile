@@ -32,6 +32,4 @@ RUN dos2unix /entrypoint.sh \
             /backup-bitwarden.sh \
             /backup-delete.sh
 
-RUN echo "0 1 * * * /backup-bitwarden.sh" > /etc/crontabs/root
-
 ENTRYPOINT ["/entrypoint.sh"]
