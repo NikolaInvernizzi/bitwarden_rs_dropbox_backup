@@ -1,4 +1,5 @@
-# BitWarden_RS Dropbox Nightly Backup
+# BitWarden_RS Dropbox Nightly Backup for a RaspberryPi
+## 90% based on https://github.com/shivpatel/bitwarden_rs_dropbox_backup/
 Run this image alongside your bitwarden_rs container for automated nightly (1AM UTC) backups of your BitWarden database and your attachments to your Dropbox account. Backups are encrypted (OpenSSL AES256) and zipped (`.tar.gz`) with a passphrase of your choice.
 
 **IMPORTANT: Make sure you have at least one personal device (e.g. laptop) connected to Dropbox and syncing files locally. This will save you in the event Bitwarden goes down and your Dropbox account login was stored in Bitwarden!!!**

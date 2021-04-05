@@ -23,13 +23,18 @@ COPY entrypoint.sh /
 # # copy delete older backup script to /
 COPY backup-delete.sh /
 
+# # copy setup dropbox script to /
+COPY setup.sh /
+
 # # give execution permission to scripts
 RUN chmod +x /entrypoint.sh && \
     chmod +x /backup-bitwarden.sh && \
-    chmod +x /backup-delete.sh
+    chmod +x /backup-delete.sh && \
+    chmod +x /setup.sh
 
 RUN dos2unix /entrypoint.sh \
             /backup-bitwarden.sh \
-            /backup-delete.sh
+            /backup-delete.sh \
+            /setup.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
