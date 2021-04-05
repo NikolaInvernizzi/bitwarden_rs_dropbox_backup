@@ -11,6 +11,5 @@ services:
       - BACKUP_PREFIX=BitwardenBackup
       - BACKUP_ENCRYPTION_KEY=XXXX
       - DELETE_AFTER=10
-      - MINIMUM_BACKUPS=10
       - KEEP_LOCAL_BACKUPS=1
       - CRON_EXPRESSION=0 1 * * *
