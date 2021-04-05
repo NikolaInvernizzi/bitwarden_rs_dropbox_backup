@@ -51,7 +51,8 @@ Edit the docker-compose.yml:
     - **Confirm that everything was correctly copied: `App Key/Secret` and `Confirmation Key`**
     - An initial backup will be taken if everything was done correctly.
     - Done.
-4. You can now exit the terminal and the backups will now be taken according your cron expression
+4. Use /logs/bitwarden_backup.log to check if the initial backup was taken and for extra logs about the dropbox link that was setup.
+5. You can now exit the terminal and the backups will now be taken according to your cron expression.
 
 ## usefull links
 Check your cron expression https://crontab.guru/
