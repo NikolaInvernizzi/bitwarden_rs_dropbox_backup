@@ -1,7 +1,7 @@
 version: '2'
 services:
   bitwarden_dropbox_backup:
-    image: nikolainvernizzi/bitwarden_rs_dropbox_backup:0.1
+    image: nikolainvernizzi/bitwarden_rs_dropbox_backup:0.3
     restart: always
     volumes:
       - /home/XXXX/bitwarden:/data 
@@ -12,4 +12,5 @@ services:
       - BACKUP_ENCRYPTION_KEY=XXXX
       - DELETE_AFTER=10
       - MINIMUM_BACKUPS=10
+      - KEEP_LOCAL_BACKUPS=1
       - CRON_EXPRESSION=0 1 * * *

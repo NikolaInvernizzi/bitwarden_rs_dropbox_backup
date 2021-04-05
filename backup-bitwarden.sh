@@ -1,7 +1,6 @@
 #!/bin/sh
 
 CONFIGFILE=/config/.dropbox_uploader
-
 if [ ! -f "$CONFIGFILE" ]; then
     echo "Configfile not found! First run setup.sh" >> /logs/bitwarden_backup.log
     exit 0
@@ -23,8 +22,11 @@ echo "Creating backup: ${BACKUP_FILE}.tar.gz" >> /logs/bitwarden_backup.log
 
 echo "Uploaded backup: ${BACKUP_FILE}.tar.gz" >> /logs/bitwarden_backup.log
 
-# copy to backups folder 
-cp /tmp/${BACKUP_FILE}.tar.gz /backups/${BACKUP_FILE}.tar.gz
+# copy to backups folder if env is given
+if [ ! -z "$KEEP_LOCAL_BACKUPS" ] && [ $KEEP_LOCAL_BACKUPS -eq 1 ]
+then
+  cp /tmp/${BACKUP_FILE}.tar.gz /backups/${BACKUP_FILE}.tar.gz
+fi
 
 # cleanup tmp folder
 rm -rf /tmp/*
