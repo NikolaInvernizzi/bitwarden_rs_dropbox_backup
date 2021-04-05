@@ -58,7 +58,7 @@ Edit the docker-compose.yml:
 Check your cron expression https://crontab.guru/
 Check timezones for cron expression: https://www.thetimezoneconverter.com/
 
-## Restoring Backup to BitWarden_RS
+## Restoring a backup to BitWarden_rs
 ### Decrypting Backup
 When running the command below it will ask for the encryption key you have in your docker-compose.yml.
 The `my-folder` has to exist for the command to work, use `.` to decrypt in current folder.
