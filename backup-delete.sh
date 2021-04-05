@@ -15,11 +15,11 @@ do
   # example "BACKUP_FILENAME": (tokenize on default whitespace)
   # db.sqlite3_2021-01-02-063033_1609569033.tar.gz
   BACKUP_FILENAME=$(echo $LINE | awk '{ print $3 }')
-
+  BACKFILE_WITHOUTPREFIX=BACKUP_FILENAME
   # example db.sqlite3_2021-01-02-063033_1609569033.tar.gz
   # prefix_2021-01-02-063033_1609569033.tar.gz
   # reason if people add underscores to prefix
-  BACKFILE_WITHOUTPREFIX=$($BACKUP_FILENAME/${BACKUP_PREFIX}/prefix)
+  BACKFILE_WITHOUTPREFIX=${BACKUP_FILENAME/$BACKUP_PREFIX/prefix}
 
   # example "BACKUP_DATE": (tokenize on _ & -)
   # 2021-01-02
