@@ -1,7 +1,7 @@
 version: '2'
 services:
   bitwarden_dropbox_backup:
-    image: nikolainvernizzi/bitwarden_rs_dropbox_backup:0.4
+    image: nikolainvernizzi/bitwarden_rs_dropbox_backup:5
     restart: always
     volumes:
       - /bitwarden:/data 

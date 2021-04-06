@@ -15,7 +15,7 @@ It's highly recommend you run via the `docker-compose.yml` provided with portain
 
 ### Setup the docker-compose.yml  
 Edit the docker-compose.yml:  
-`image`: the current version of the docker-file is: `0.4`  
+`image`: the current version of the docker-file is: `0.5`  
 `restart`: Always, keep it on always if you want the container to start making backups after a reboot.  
 `volumes`:  
 - Volume mount the `./bitwarden` folder your bitwarden_rs image uses.  
