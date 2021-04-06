@@ -21,6 +21,7 @@ Edit the docker-compose.yml:
 - Volume mount the `./home/XXXX/bitwarden` folder your bitwarden_rs container uses.  
 - Volume mount the `./home/XXXX/bitwarden-dropbox-backup/config` folder that will contain the Dropbox Uploader configuration (Dropbox app key, secret and refresh token). See next steps for more details. It's important this volume is mounted so you don't have to redo the `initial run image` step every restart!  
 - Volume mount the `./home/XXXX/backups` folder to a folder where you want to keep your local backups.  
+- Volume mount the `./home/XXXX/logs` folder to a folder where you want to keep your logs of the backups being taken.  
 `environment`:  
 - `BACKUP_PREFIX`, default: `BitwardenBackup`, The prefix for your backup files.  
 - `BACKUP_ENCRYPTION_KEY`, default: none, This is for added protection and will be needed when decrypting your backups. Pick a secure passphrase and keep it somewhere safe.  
