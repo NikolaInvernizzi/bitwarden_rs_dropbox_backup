@@ -4,10 +4,10 @@ services:
     image: nikolainvernizzi/bitwarden_rs_dropbox_backup:0.3
     restart: always
     volumes:
-      - /home/XXXX/bitwarden:/data 
-      - /home/XXXX/bitwarden-dropbox-backup/config:/config
-      - /home/XXXX/bitwarden-dropbox-backup/backups:/backups
-      - /home/XXXX/bitwarden-dropbox-backup/logs:/logs
+      - /bitwarden:/data 
+      - /bitwarden-dropbox-backup/logs:/logs
+      - /bitwarden-dropbox-backup/config:/config
+      - /bitwarden-dropbox-backup/backups:/backups
     environment:
       - BACKUP_PREFIX=BitwardenBackup
       - BACKUP_ENCRYPTION_KEY=XXXX
