@@ -25,6 +25,7 @@ echo "Uploaded backup: ${BACKUP_FILE}.tar.gz" >> /logs/bitwarden_backup.log
 # copy to backups folder if env is given
 if [ ! -z "$KEEP_LOCAL_BACKUPS" ] && [ $KEEP_LOCAL_BACKUPS -eq 1 ]
 then
+  echo "Saved backup locally" >> /logs/bitwarden_backup.log
   cp /tmp/${BACKUP_FILE}.tar.gz /backups/${BACKUP_FILE}.tar.gz
 fi
 

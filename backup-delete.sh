@@ -36,7 +36,7 @@ do
 
     if [ "$DAYS_DIFF" -gt "$DELETE_AFTER" ]
     then
-      echo "File $BACKUP_FILENAME is $DAYS_DIFF days old (greater than $DELETE_AFTER days). Deleting it (local and dropbox)." >> /logs/bitwarden_backup.log
+      echo "Removing backup: $BACKUP_FILENAME is $DAYS_DIFF (> $DELETE_AFTER) days old (local and dropbox)" >> /logs/bitwarden_backup.log
       # remove from dropbox
       /dropbox_uploader.sh -f /config/.dropbox_uploader delete /$BACKUP_FILENAME
       # remove from device

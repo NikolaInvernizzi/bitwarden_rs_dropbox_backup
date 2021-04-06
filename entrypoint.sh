@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> /logs/bitwarden_backup.log
+echo "(Re)started the Bitwarden_rs Dropbox backup container" >> /logs/bitwarden_backup.log
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" >> /logs/bitwarden_backup.log
+echo " " >> /logs/bitwarden_backup.log
 echo "$CRON_EXPRESSION /backup-bitwarden.sh" > /etc/crontabs/root
 
 #make config and backup directories
