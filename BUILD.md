@@ -1,0 +1,1 @@
+docker build -t nikolainvernizzi/bitwarden_rs_dropbox_backup:0.4 .
