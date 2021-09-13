@@ -8,10 +8,11 @@ echo "$CRON_EXPRESSION /backup-bitwarden.sh" > /etc/crontabs/root
 
 #make config and backup directories
 mkdir /config
+mkdir /backups
 
-if [ ! -z "$KEEP_LOCAL_BACKUPS" ] && [ $KEEP_LOCAL_BACKUPS -eq 1 ]
+if [ ! -d "/data/attachments" ]
 then
-    mkdir /backups
+    mkdir /data/attachments
 fi
 
 mkdir /logs
